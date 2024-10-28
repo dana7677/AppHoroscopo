@@ -20,19 +20,18 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerHoroscope.adapter=HoroscopoAdapter(
             listOf(
 
-                    SimboloZodiaco("Aries","direccion imagen"),
-                    SimboloZodiaco("Taurus","direccion imagen"),
-                    SimboloZodiaco("Geminis","direccion imagen"),
-                    SimboloZodiaco("Cancer","direccion imagen"),
-                    SimboloZodiaco("Leo","direccion imagen"),
-                    SimboloZodiaco("Virgo","direccion imagen"),
-                    SimboloZodiaco("Libra","direccion imagen"),
-                    SimboloZodiaco("Scorpio","direccion imagen"),
-                    SimboloZodiaco("Sagittarius","direccion imagen"),
-                    SimboloZodiaco("Capricorn","direccion imagen"),
-                    SimboloZodiaco("Aquarius","direccion imagen"),
-                    SimboloZodiaco("Pisces","direccion imagen"),
-
+                    SimboloZodiaco(R.string.Aries.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Taurus.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Geminis.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Cancer.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Leo.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Virgo.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Libra.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Scorpio.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Sagittarius.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Capricorn.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Aquarius.toString(),"direccion imagen"),
+                    SimboloZodiaco(R.string.Pisces.toString(),"direccion imagen"),
                  )
         )
 

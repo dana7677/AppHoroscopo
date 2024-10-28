@@ -10,12 +10,7 @@ class HoroscopoAdapter(private val simboloZodiaco:List<SimboloZodiaco>):
     RecyclerView.Adapter<HoroscopoAdapter.ViewHolder>() {
 
     //Componenente dentro del ViewHolder que va a componer la vista
-    class ViewHolder(binding:ViewSimbolozodiacoItemBinding):RecyclerView.ViewHolder(binding.root)
-    {
-        fun bind(simboloZodiaco:SimboloZodiaco)
-        {
-        }
-    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -35,4 +30,13 @@ class HoroscopoAdapter(private val simboloZodiaco:List<SimboloZodiaco>):
         holder.bind(simboloZodiaco[position])
     }
 
+    class ViewHolder(private val binding:ViewSimbolozodiacoItemBinding):RecyclerView.ViewHolder(binding.root)
+    {
+        fun bind(simboloZodiaco:SimboloZodiaco)
+        {
+
+            binding.txtIconSimb.text=simboloZodiaco.Nombre
+
+        }
+    }
 }
