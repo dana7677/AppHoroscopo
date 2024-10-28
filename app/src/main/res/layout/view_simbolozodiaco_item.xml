@@ -5,7 +5,17 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/txtIconSimb"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:text="Aries"
+        android:textAllCaps="true"
+        android:layout_gravity="center"
+        android:textStyle="bold">
+    </TextView>
     <ImageView
+        android:id="@+id/ImgZodiac"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/ic_launcher_foreground"
@@ -13,10 +23,13 @@
 
     </ImageView>
     <TextView
+        android:id="@+id/txtFechasZodiac"
         android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:text="Soy un simbolo del zodiaco"
+        android:layout_height="40dp"
+        android:text="10 Feb - 15 Ago"
         android:layout_gravity="center">
     </TextView>
+
+
 
 </LinearLayout>

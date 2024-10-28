@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                     SimboloZodiaco("Capricorn","direccion imagen"),
                     SimboloZodiaco("Aquarius","direccion imagen"),
                     SimboloZodiaco("Pisces","direccion imagen"),
+
                  )
         )
 
