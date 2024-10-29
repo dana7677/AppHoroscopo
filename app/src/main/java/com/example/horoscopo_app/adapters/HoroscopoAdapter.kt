@@ -18,8 +18,7 @@ class HoroscopoAdapter(private val simboloZodiaco:List<SimboloZodiaco>):
         //De Context coge a la vista de su padre que lo ha creado.
 
 
-                val binding=ViewSimbolozodiacoItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-
+        val binding=ViewSimbolozodiacoItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
 
     }
