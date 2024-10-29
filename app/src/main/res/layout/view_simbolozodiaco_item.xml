@@ -5,30 +5,48 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/txtIconSimb"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:textAllCaps="true"
-        android:layout_gravity="center"
-        android:textStyle="bold">
-    </TextView>
-    <ImageView
-        android:id="@+id/ImgZodiac"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:layout_gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:background="@color/BackgroundComp"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="10dp">
 
-    </ImageView>
-    <TextView
-        android:id="@+id/txtFechasZodiac"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:text="10 Feb - 15 Ago"
-        android:layout_gravity="center">
-    </TextView>
 
+        <TextView
+            android:id="@+id/txtIconSimb"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black">
+        </TextView>
+
+        <ImageView
+            android:id="@+id/ImgZodiac"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:layout_gravity="center">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/txtFechasZodiac"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="October 23 to November 21"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:textColor="@color/black">
+        </TextView>
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

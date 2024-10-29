@@ -1,8 +1,9 @@
-package com.example.horoscopo_app
+package com.example.horoscopo_app.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.horoscopo_app.data.SimboloZodiaco
 import com.example.horoscopo_app.databinding.ViewSimbolozodiacoItemBinding
 
 
@@ -32,10 +33,16 @@ class HoroscopoAdapter(private val simboloZodiaco:List<SimboloZodiaco>):
 
     class ViewHolder(private val binding:ViewSimbolozodiacoItemBinding):RecyclerView.ViewHolder(binding.root)
     {
-        fun bind(simboloZodiaco:SimboloZodiaco)
+        fun bind(simboloZodiaco: SimboloZodiaco)
         {
+            val context = itemView.context
+            binding.txtIconSimb.setText(simboloZodiaco.Nombre)
+            binding.ImgZodiac.setImageResource(simboloZodiaco.Icono)
+            binding.txtFechasZodiac.setText(simboloZodiaco.Dates)
+            //Este otro caso necesita la vista que estamos utilizando
+            //Ademas necesita resolver la llamada de El Get drawable.
+            //binding.ImgZodiac.setImageDrawable(context.getDrawable(simboloZodiaco.Icono))
 
-            binding.txtIconSimb.text=simboloZodiaco.Nombre
 
         }
     }
