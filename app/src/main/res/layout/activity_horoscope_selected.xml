@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/purple_galaxy_bg"
     tools:context=".activities.horoscopeSelectedActivity">
 
     <LinearLayout
@@ -20,13 +21,15 @@
 
         <TextView
             android:id="@+id/txtSelIconSimb"
-            android:layout_width="130dp"
-            android:layout_height="30dp"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:textAllCaps="true"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="@color/black">
+            android:textColor="@color/white">
         </TextView>
 
         <ImageView
@@ -34,6 +37,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/ic_launcher_foreground"
+            app:tint="@color/ZodiacColor"
             android:layout_gravity="center">
 
         </ImageView>
@@ -42,10 +46,14 @@
             android:id="@+id/descriptionZodiac"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
             android:text="Text describir tu simbolo del zodiaco"
             android:textSize="16sp"
             android:layout_gravity="center"
-            android:textColor="@color/black">
+            android:textColor="@color/white">
         </TextView>
 
 

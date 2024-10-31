@@ -1,15 +1,13 @@
 package com.example.horoscopo_app.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.horoscopo_app.activities.horoscopeSelectedActivity
 import com.example.horoscopo_app.data.SimboloZodiaco
 import com.example.horoscopo_app.databinding.ViewSimbolozodiacoItemBinding
 
 
-class HoroscopoAdapter(private var simboloZodiaco:List<SimboloZodiaco>):
+class HoroscopoAdapter(private var simboloZodiaco:List<SimboloZodiaco>,private val onItemClickListener: (Int) -> Unit):
     RecyclerView.Adapter<HoroscopoAdapter.ViewHolder>() {
 
         //SearchViewConfig
@@ -38,8 +36,13 @@ class HoroscopoAdapter(private var simboloZodiaco:List<SimboloZodiaco>):
     //Devolver automaticamente la cantidad de simbolos en nuestro Lista del zodiaco
     override fun getItemCount()=simboloZodiaco.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int)
+    {
         holder.bind(simboloZodiaco[position])
+
+        holder.itemView.setOnClickListener {
+            onItemClickListener(position)
+        }
     }
 
     companion object
@@ -57,13 +60,19 @@ class HoroscopoAdapter(private var simboloZodiaco:List<SimboloZodiaco>):
             binding.ImgZodiac.setImageResource(simboloZodiaco.Icono)
             binding.txtFechasZodiac.setText(simboloZodiaco.Dates)
 
+
+            //Antiguo metodo pero mala Praxis, mejor hacerlo a traves de una función lambda
+            /*
             itemView.setOnClickListener {
+
 
                 val intent = Intent(context,horoscopeSelectedActivity::class.java)
                 intent.putExtra(Horoscopo_KEY,simboloZodiaco.id)
                 context.startActivity(intent)
 
             }
+            */
+
 
             //Este otro caso necesita la vista que estamos utilizando
             //Ademas necesita resolver la llamada de El Get drawable.

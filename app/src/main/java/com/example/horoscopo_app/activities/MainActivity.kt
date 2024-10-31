@@ -30,28 +30,15 @@ lateinit var searchViewMenu:SearchView
         val binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         recyclerView = findViewById(R.id.recyclerHoroscope)
         simboloZodiacoList= SimboloZodiacoProvider.findAll()
 
-
-        //Forma de Rellenar el Value sin bindeo con el Recycler ya creado
-        /*
-        val adapter = HoroscopoAdapter(simboloZodiacoList)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-*/
-
         //Menu de busqueda
-        Adapter =HoroscopoAdapter(simboloZodiacoList)
-
-        //{position->navigateToDetail((simboloZodiacoList[position])
-        //}
-
+        Adapter =HoroscopoAdapter(simboloZodiacoList){ position ->
+            navigateToDetail(simboloZodiacoList[position])
+        }
 
         binding.recyclerHoroscope.adapter = Adapter
-
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -70,12 +57,6 @@ lateinit var searchViewMenu:SearchView
         {
 
             val searchItem = menu.findItem(R.id.searcher)
-
-            //val SearchItem:MenuItem=menu.findItem(R.id.searcher)
-
-            //Mi var Searchiew vinculandola a la vista
-
-            //var NewSearchView:SearchView=searchItem.actionView as SearchView
 
             searchViewMenu = searchItem.actionView as SearchView
 
@@ -112,35 +93,6 @@ lateinit var searchViewMenu:SearchView
         {
             Toast.makeText(this,"No data Found",Toast.LENGTH_SHORT).show()
         }
-
-        /*var filteredList : MutableList<SimboloZodiaco> = ArrayList<SimboloZodiaco>()
-
-
-        //Busqueda comparando valores con la ListaInicial
-
-        filteredList.clear()
-
-        for(simboloZodiaco in simboloZodiacoList)
-        {
-            if(newText!="")
-            {
-                if(simboloZodiaco.id.lowercase().contains(newText.toString().lowercase()))
-                {
-                    filteredList.add(simboloZodiaco)
-
-                }
-            }
-
-        }
-        if(filteredList.isEmpty())
-        {
-            Toast.makeText(this,"No data Found",Toast.LENGTH_SHORT).show()
-        }
-        else
-        {
-            Adapter.setFilteredList(filteredList)
-        }*/
-
 
     }
 

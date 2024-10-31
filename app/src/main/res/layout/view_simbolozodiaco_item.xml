@@ -23,7 +23,7 @@
             android:textAllCaps="true"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/black">
+            android:textColor="@color/white">
         </TextView>
 
         <ImageView
@@ -31,18 +31,19 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/ic_launcher_foreground"
+            app:tint="@color/ZodiacColor"
             android:layout_gravity="center">
 
         </ImageView>
 
         <TextView
             android:id="@+id/txtFechasZodiac"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="40dp"
             android:text="October 23 to November 21"
             android:textSize="16sp"
             android:layout_gravity="center"
-            android:textColor="@color/black">
+            android:textColor="@color/white">
         </TextView>
 
 
