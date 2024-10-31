@@ -9,8 +9,18 @@ import com.example.horoscopo_app.data.SimboloZodiaco
 import com.example.horoscopo_app.databinding.ViewSimbolozodiacoItemBinding
 
 
-class HoroscopoAdapter(private val simboloZodiaco:List<SimboloZodiaco>):
+class HoroscopoAdapter(private var simboloZodiaco:List<SimboloZodiaco>):
     RecyclerView.Adapter<HoroscopoAdapter.ViewHolder>() {
+
+        //SearchViewConfig
+
+       fun setFilteredList(filterList:List<SimboloZodiaco> )
+
+       {
+           this.simboloZodiaco=filterList
+            notifyDataSetChanged()
+
+       }
 
     //Componenente dentro del ViewHolder que va a componer la vista
 

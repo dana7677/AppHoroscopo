@@ -1,8 +1,8 @@
 package com.example.horoscopo_app.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,17 +20,15 @@ import com.example.horoscopo_app.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
 lateinit var simboloZodiacoList: List<SimboloZodiaco>
-
 lateinit var recyclerView: RecyclerView
-private lateinit var arrayAdapter:ArrayAdapter<SimboloZodiaco>
+private lateinit var Adapter:HoroscopoAdapter
+lateinit var searchViewMenu:SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
 
 
 
@@ -46,11 +44,13 @@ private lateinit var arrayAdapter:ArrayAdapter<SimboloZodiaco>
 */
 
         //Menu de busqueda
-        arrayAdapter=ArrayAdapter(this,android.R.layout.simple_list_item_1,android.R.id.text1,simboloZodiacoList)
+        Adapter =HoroscopoAdapter(simboloZodiacoList)
 
-       itemAdapter =HoroscopoAdapter(simboloZodiacoList)
+        //{position->navigateToDetail((simboloZodiacoList[position])
+        //}
 
-        binding.recyclerHoroscope.adapter = HoroscopoAdapter(simboloZodiacoList)
+
+        binding.recyclerHoroscope.adapter = Adapter
 
 
 
@@ -62,46 +62,91 @@ private lateinit var arrayAdapter:ArrayAdapter<SimboloZodiaco>
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean
-    {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
         menuInflater.inflate(R.menu.menu,menu)
 
-        val buscar= menu?.findItem(R.id.searcher)
-        val searchView = buscar?.actionView as SearchView
+        if(menu!=null)
+        {
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            val searchItem = menu.findItem(R.id.searcher)
 
-            override fun onQueryTextSubmit(query: String?): Boolean {
+            //val SearchItem:MenuItem=menu.findItem(R.id.searcher)
 
-                query?.let{
-                    Toast.makeText(this@MainActivity,"Quieres Buscar Coincidencias con: ${query}:",Toast.LENGTH_SHORT).show()
-                    this@MainActivity.recyclerView.adapter
+            //Mi var Searchiew vinculandola a la vista
+
+            //var NewSearchView:SearchView=searchItem.actionView as SearchView
+
+            searchViewMenu = searchItem.actionView as SearchView
+
+            searchViewMenu.clearFocus()
+
+            searchViewMenu.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    return false
+
                 }
-                return false
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
+                override fun onQueryTextChange(newText: String): Boolean {
+                    filterList(newText)
+                    return true
 
-                return false
-            }
+                }
 
-
-            
-        })
+            })
+        }
 
         return super.onCreateOptionsMenu(menu)
     }
 
-    private fun filterList(newText: String?) {
+    private fun filterList(newText: String) {
 
-        List<SimboloZodiaco> filteredList =
-
-        for(SimboloZodiaco simboloZodiaco:SimboloZodiacoList)
-        {
-
+        val filteredList = simboloZodiacoList.filter {
+            getString(it.Nombre).contains(newText, true)
+            || getString(it.Dates).contains(newText, true)
         }
 
+        Adapter.setFilteredList(filteredList)
+        if(filteredList.isEmpty())
+        {
+            Toast.makeText(this,"No data Found",Toast.LENGTH_SHORT).show()
+        }
 
+        /*var filteredList : MutableList<SimboloZodiaco> = ArrayList<SimboloZodiaco>()
+
+
+        //Busqueda comparando valores con la ListaInicial
+
+        filteredList.clear()
+
+        for(simboloZodiaco in simboloZodiacoList)
+        {
+            if(newText!="")
+            {
+                if(simboloZodiaco.id.lowercase().contains(newText.toString().lowercase()))
+                {
+                    filteredList.add(simboloZodiaco)
+
+                }
+            }
+
+        }
+        if(filteredList.isEmpty())
+        {
+            Toast.makeText(this,"No data Found",Toast.LENGTH_SHORT).show()
+        }
+        else
+        {
+            Adapter.setFilteredList(filteredList)
+        }*/
+
+
+    }
+
+    fun navigateToDetail(simboloZodiaco: SimboloZodiaco) {
+        val intent: Intent = Intent(this, horoscopeSelectedActivity::class.java)
+        intent.putExtra(HoroscopoAdapter.Horoscopo_KEY,simboloZodiaco.id)
+        startActivity(intent)
     }
 }
