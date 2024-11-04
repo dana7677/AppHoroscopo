@@ -49,6 +49,13 @@ lateinit var searchViewMenu:SearchView
 
     }
 
+
+    //Empleamos este metodo porque se ejecuta la volver a la vista aunque ya este creado
+    override fun onResume() {
+        super.onResume()
+        Adapter.notifyDataSetChanged()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.menu,menu)

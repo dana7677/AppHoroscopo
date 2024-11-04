@@ -3,6 +3,7 @@ package com.example.horoscopo_app.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.horoscopo_app.Horoscopo_APP_Application.Companion.prefs
 import com.example.horoscopo_app.data.SimboloZodiaco
 import com.example.horoscopo_app.databinding.ViewSimbolozodiacoItemBinding
 
@@ -59,6 +60,16 @@ class HoroscopoAdapter(private var simboloZodiaco:List<SimboloZodiaco>,private v
             binding.txtIconSimb.setText(simboloZodiaco.Nombre)
             binding.ImgZodiac.setImageResource(simboloZodiaco.Icono)
             binding.txtFechasZodiac.setText(simboloZodiaco.Dates)
+            if(prefs.getName()==simboloZodiaco.id)
+            {
+                /*
+                //binding.linearBackground.setBackgroundColor(BackgroundCompFaved)
+                var color = R.color.BackgroundCompFaved
+                binding.linearBackground.setBackgroundColor(color)
+
+                 */
+            }
+
 
 
             //Antiguo metodo pero mala Praxis, mejor hacerlo a traves de una función lambda

@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="BackgroundGeneral">#003694</color>
     <color name="BackgroundComp">#56005EFF</color>
+    <color name="BackgroundCompFaved">#99005EFF</color>
     <color name="ZodiacColor">#E800B7FF</color>
 </resources>
