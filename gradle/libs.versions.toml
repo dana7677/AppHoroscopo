@@ -9,8 +9,11 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
+retrofitVersion="2.11.0"
 
 [libraries]
+retrofit={group="com.squareup.retrofit2",name="retrofit",version.ref ="retrofitVersion"}
+retrofitGson={group="com.squareup.retrofit2",name="converter-gson",version.ref ="retrofitVersion"}
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

@@ -1,5 +1,6 @@
 package com.example.horoscopo_app.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,10 +11,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.horoscopo_app.Horoscopo_APP_Application.Companion.prefs
 import com.example.horoscopo_app.R
 import com.example.horoscopo_app.data.SimboloZodiaco
 import com.example.horoscopo_app.data.SimboloZodiacoProvider
+import com.example.horoscopo_app.dataRetrofit.RetrofitServiceFactory
+import kotlinx.coroutines.launch
 
 class horoscopeSelectedActivity : AppCompatActivity() {
 
@@ -28,7 +32,7 @@ class horoscopeSelectedActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_horoscope_selected)
 
-        val result=intent.extras?.getString("Horoscopo_Result")
+        val result = intent.extras?.getString("Horoscopo_Result")
 
         if(result!=null)
         {
@@ -59,6 +63,13 @@ class horoscopeSelectedActivity : AppCompatActivity() {
     private fun initUI(id:String)
     {
         selectedZodiac= SimboloZodiacoProvider.findById(id)
+
+
+        val service= RetrofitServiceFactory.makeRetrofitService()
+        lifecycleScope.launch {
+            val value = service.getDailyZodiac(selectedZodiac.id,"TODAY")
+            descriptselZodiac.setText(value.data.horoscope_data)
+        }
 
         //Hacer en la parte del menu el cambio del nombre y añadir un subtitulo de fechas
         supportActionBar?.title = getString(selectedZodiac.Nombre)
@@ -135,6 +146,7 @@ class horoscopeSelectedActivity : AppCompatActivity() {
                 }
             R.id.share->
                 {
+                    shareDats(selectedZodiac.id)
                     return true
                 }
             else->
@@ -144,6 +156,18 @@ class horoscopeSelectedActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun shareDats(zodiacShare:String)
+    {
+        val intent=Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT,zodiacShare)
+            type="text/plain"
+            putExtra(Intent.EXTRA_TITLE,"Aqui entraria la descripcion del zodiaco")
+        }
+        val shareIntent=Intent.createChooser(intent,null)
+        startActivity(shareIntent)
+    }
     private fun clearSharedPrefs()
     {
         prefs.wipe()
