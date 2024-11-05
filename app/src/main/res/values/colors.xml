@@ -3,7 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="BackgroundGeneral">#003694</color>
+    <color name="MenuTheme">#0074F1</color>
+    <color name="OutMenuTheme">#003EAB</color>
     <color name="BackgroundComp">#56005EFF</color>
-    <color name="BackgroundCompFaved">#99005EFF</color>
+    <color name="BackgroundCompFaved">#576817FF</color>
     <color name="ZodiacColor">#E800B7FF</color>
 </resources>

@@ -7,7 +7,6 @@
         android:id="@+id/fav"
         android:title="@string/menu_favorite"
         android:icon="@drawable/fav_icon"
-        android:iconTint="@color/white"
         app:showAsAction="always"
         />
     <item
@@ -15,6 +14,7 @@
         android:title="@string/menu_share"
         android:icon="@drawable/share_icon"
         app:showAsAction="always"
+        app:iconTint="@color/white"
         />
 
 

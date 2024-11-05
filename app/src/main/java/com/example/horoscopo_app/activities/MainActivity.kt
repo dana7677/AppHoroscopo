@@ -4,11 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.horoscopo_app.R
 import com.example.horoscopo_app.adapters.HoroscopoAdapter
@@ -26,7 +23,7 @@ lateinit var searchViewMenu:SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
         val binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -41,11 +38,11 @@ lateinit var searchViewMenu:SearchView
         binding.recyclerHoroscope.adapter = Adapter
 
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-        }
+        }*/
 
     }
 
