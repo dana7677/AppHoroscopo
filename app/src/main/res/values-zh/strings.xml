@@ -13,8 +13,6 @@
     <string name="horoscope_name_capricorn">"摩羯座 "</string>
     <string name="horoscope_name_aquarius">水瓶座</string>
     <string name="horoscope_name_pisces">双鱼座</string>
-    <string name="horoscope_date_taurus">" "</string>
-    <string name="horoscope_date_libra">" "</string>
     <string name="horoscope_of_day">"今天的星座运势 "</string>
     <string name="menu_search">搜索</string>
     <string name="menu_favorite">"最喜欢的 "</string>
