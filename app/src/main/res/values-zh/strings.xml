@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">星座运势</string>
+    <string name="horoscope_name_aries">"白羊座 "</string>
+    <string name="horoscope_name_taurus">金牛座</string>
+    <string name="horoscope_name_gemini">"双子座 "</string>
+    <string name="horoscope_name_cancer">癌症</string>
+    <string name="horoscope_name_leo">狮子座</string>
+    <string name="horoscope_name_virgo">处女座</string>
+    <string name="horoscope_name_libra">"磅 "</string>
+    <string name="horoscope_name_scorpio">"天蝎座 "</string>
+    <string name="horoscope_name_sagittarius">"射手座 "</string>
+    <string name="horoscope_name_capricorn">"摩羯座 "</string>
+    <string name="horoscope_name_aquarius">水瓶座</string>
+    <string name="horoscope_name_pisces">双鱼座</string>
+    <string name="horoscope_date_taurus">" "</string>
+    <string name="horoscope_date_libra">" "</string>
+    <string name="horoscope_of_day">"今天的星座运势 "</string>
+    <string name="menu_search">搜索</string>
+    <string name="menu_favorite">"最喜欢的 "</string>
+    <string name="menu_share">分享</string>
+    <string name="menu_daily">今天</string>
+    <string name="menu_weekly">星期</string>
+    <string name="menu_monthly">月</string>
+    <string name="default_descript">咨询星星...............................................................</string>
+</resources>

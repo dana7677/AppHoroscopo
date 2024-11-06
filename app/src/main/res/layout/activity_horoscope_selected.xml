@@ -50,10 +50,12 @@
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Text describir tu simbolo del zodiaco"
-            android:textSize="16sp"
+            android:text="@string/default_descript"
+            android:textSize="22sp"
             android:layout_gravity="center"
-            android:textColor="@color/white">
+            android:textColor="@color/white"
+            android:elegantTextHeight="true"
+            android:textStyle="italic">
         </TextView>
 
 

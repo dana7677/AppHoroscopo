@@ -38,5 +38,6 @@
     <string name="menu_daily">Today</string>
     <string name="menu_weekly">Week</string>
     <string name="menu_monthly">Month</string>
+    <string name="default_descript">Constulting with the Stars ..........  ......... .... ... .. .</string>
 
 </resources>

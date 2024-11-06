@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Horoscopo</string>
+    <string name="horoscope_name_aries">Aries</string>
+    <string name="horoscope_name_taurus">Tauro</string>
+    <string name="horoscope_name_gemini">Geminis</string>
+    <string name="horoscope_name_cancer">Cancer</string>
+    <string name="horoscope_name_leo">Leo</string>
+    <string name="horoscope_name_virgo">Virgo</string>
+    <string name="horoscope_name_libra">Libra</string>
+    <string name="horoscope_name_scorpio">Scorpio</string>
+    <string name="horoscope_name_sagittarius">Sagitario</string>
+    <string name="horoscope_name_capricorn">Capricornio</string>
+    <string name="horoscope_name_aquarius">Aquario</string>
+    <string name="horoscope_name_pisces">Piscis</string>
+    <string name="horoscope_of_day">Horoscopo del dia:</string>
+    <string name="menu_search">buscar</string>
+    <string name="menu_favorite">favorito</string>
+    <string name="menu_share">compartir</string>
+    <string name="menu_daily">hoy</string>
+    <string name="menu_weekly">semana</string>
+    <string name="menu_monthly">mes</string>
+    <string name="default_descript">Consultando con las estrellas .......... ......... .... ... .. .</string>
+</resources>

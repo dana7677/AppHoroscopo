@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ابراج</string>
+    <string name="horoscope_name_aries">"بُرْجُ الحَمَل "</string>
+    <string name="horoscope_name_taurus">برج الثور</string>
+    <string name="horoscope_name_gemini">تَوأَم</string>
+    <string name="horoscope_name_cancer">"سرطان "</string>
+    <string name="horoscope_name_leo">ليو</string>
+    <string name="horoscope_name_virgo">"بُرْجُ العَذْراء "</string>
+    <string name="horoscope_name_libra">جنيه</string>
+    <string name="horoscope_name_scorpio">العقرب</string>
+    <string name="horoscope_name_sagittarius">"برج القوس "</string>
+    <string name="horoscope_name_capricorn">"بُرْجُ الجَدْي "</string>
+    <string name="horoscope_name_aquarius">"برج الدلو "</string>
+    <string name="horoscope_name_pisces">الحوت</string>
+    <string name="horoscope_of_day">ابراج اليوم</string>
+    <string name="menu_search">يبحث</string>
+    <string name="menu_favorite">مفضل</string>
+    <string name="menu_share">يشارك</string>
+    <string name="menu_daily">اليوم</string>
+    <string name="menu_weekly">أسبوع</string>
+    <string name="menu_monthly">شهر</string>
+    <string name="default_descript">"التشاور مع النجوم .......... ......... .... ... .. . "</string>
+</resources>

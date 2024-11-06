@@ -10,6 +10,7 @@ import retrofit2.http.Query
 interface RetrofitService {
 
     // /get-horoscope/daily
+
     @GET("get-horoscope/daily")
     suspend fun getDailyZodiac(
         @Query("sign") apiKey:String,
