@@ -13,6 +13,18 @@
     <string name="horoscope_name_capricorn">Capricornio</string>
     <string name="horoscope_name_aquarius">Aquario</string>
     <string name="horoscope_name_pisces">Piscis</string>
+    <string name="horoscope_date_aries">21 de Marzo-19 de abril</string>
+    <string name="horoscope_date_taurus">20 de abril-20 de Mayo</string>
+    <string name="horoscope_date_gemini">21 de Mayo-20 de Junio</string>
+    <string name="horoscope_date_cancer">21 de Junio-22 de Julio</string>
+    <string name="horoscope_date_leo">23 de Julio-22 de Agosto</string>
+    <string name="horoscope_date_virgo">23 de Agosto-</string>
+    <string name="horoscope_date_libra">23 de Septiembre-22 de Octubre</string>
+    <string name="horoscope_date_scorpio">23 de Octubre-21 de Noviembre</string>
+    <string name="horoscope_date_sagittarius">22 de Noviembre-21 de Diciembre</string>
+    <string name="horoscope_date_capricorn">22 de Diciembre-19 de Enero</string>
+    <string name="horoscope_date_aquarius">20 de Enero-18 de Febrero</string>
+    <string name="horoscope_date_pisces">19 de Febrero-20 de Marzo</string>
     <string name="horoscope_of_day">Horoscopo del dia:</string>
     <string name="menu_search">buscar</string>
     <string name="menu_favorite">favorito</string>
@@ -21,4 +33,5 @@
     <string name="menu_weekly">semana</string>
     <string name="menu_monthly">mes</string>
     <string name="default_descript">Consultando con las estrellas .......... ......... .... ... .. .</string>
+    <string name="back">Volver</string>
 </resources>
