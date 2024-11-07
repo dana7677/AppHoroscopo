@@ -87,6 +87,8 @@ lateinit var searchViewMenu:SearchView
 
     private fun filterList(newText: String) {
 
+        //Lista Filtrada de posibles opciones.
+
         val filteredList = simboloZodiacoList.filter {
             getString(it.Nombre).contains(newText, true)
             || getString(it.Dates).contains(newText, true)

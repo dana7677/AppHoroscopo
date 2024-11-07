@@ -275,9 +275,9 @@ class horoscopeSelectedActivity : AppCompatActivity() {
     {
         val intent=Intent().apply {
             action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT,zodiacShare)
+            putExtra(Intent.EXTRA_TEXT,txtTraducted)
             type="text/plain"
-            putExtra(Intent.EXTRA_TITLE,txtTraducted)
+            putExtra(Intent.EXTRA_TITLE,zodiacShare)
         }
         val shareIntent=Intent.createChooser(intent,null)
         startActivity(shareIntent)
