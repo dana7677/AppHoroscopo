@@ -16,6 +16,16 @@ interface RetrofitService {
         @Query("sign") apiKey:String,
         @Query("day") day:String="TODAY"
     ):RemoteResult
+    @GET("get-horoscope/weekly")
+    suspend fun getWeeklyZodiac(
+        @Query("sign") apiKey:String,
+    ):RemoteResult
+    @GET("get-horoscope/monthly")
+    suspend fun getMonthlyZodiac(
+        @Query("sign") apiKey:String,
+    ):RemoteResult
+
+
 
 
 }

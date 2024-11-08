@@ -10,6 +10,7 @@
     tools:context=".activities.horoscopeSelectedActivity">
 
     <LinearLayout
+        android:id="@+id/linear2"
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:orientation="vertical"
@@ -42,26 +43,42 @@
 
         </ImageView>
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigationBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:itemPaddingBottom="0dp"
+            android:background="@color/Background0_Opacity"
+            app:elevation="0dp"
+            app:menu="@menu/menu_navigation_detail"
+            app:itemIconSize="36dp"
+            app:itemIconTint="@color/white"/>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/descriptionZodiac"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
             android:text="@string/default_descript"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMaxTextSize="22sp"
-            android:autoSizeMinTextSize="18sp"
-            android:layout_gravity="center"
+            android:justificationMode="inter_word"
+            android:textSize="20sp"
             android:textColor="@color/white"
-            android:elegantTextHeight="true"
-            android:textStyle="italic">
-        </TextView>
+            android:padding="16dp"
+            android:textStyle="italic"/>
+
+
+        </ScrollView>
+
 
 
     </LinearLayout>
+
     <Button
         android:id="@+id/BackToHoroscopo"
         android:layout_width="200dp"
@@ -72,6 +89,7 @@
         android:text="Back">
 
     </Button>
+
 
 
 </LinearLayout>

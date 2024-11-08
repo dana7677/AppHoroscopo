@@ -17,6 +17,8 @@ import com.example.horoscopo_app.R
 import com.example.horoscopo_app.data.SimboloZodiaco
 import com.example.horoscopo_app.data.SimboloZodiacoProvider
 import com.example.horoscopo_app.dataRetrofit.RetrofitServiceFactory
+import com.example.horoscopo_app.dataRetrofit.model.RemoteResult
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
@@ -25,11 +27,10 @@ import com.google.mlkit.nl.translate.TranslatorOptions
 import kotlinx.coroutines.launch
 import java.util.Locale
 
-enum class Language(val code: String) {
-    ENGLISH("en"),
-    GERMAN("de"),
-    SPANISH("es"),
-    FRENCH("fr");
+enum class typeDayZodiac(val code: String) {
+    daily("day"),
+    weekly("week"),
+    month("mont");
 }
 class horoscopeSelectedActivity : AppCompatActivity() {
 
@@ -42,6 +43,11 @@ class horoscopeSelectedActivity : AppCompatActivity() {
    private lateinit var oriLanguageForDestLanguage:Translator
    private lateinit var conditions:DownloadConditions
    private lateinit var txtTraducted:String
+   private lateinit var menuItem:MenuItem
+   private var conexionWork:Boolean = false
+    lateinit var navigationBar: BottomNavigationView
+    var typedayInfo:typeDayZodiac=typeDayZodiac.daily
+    lateinit var resultCallApi:RemoteResult
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,14 +62,9 @@ class horoscopeSelectedActivity : AppCompatActivity() {
 
 
         //Traducccion
-
          conditions = DownloadConditions.Builder()
             .requireWifi()
             .build()
-
-
-
-
 
         val result = intent.extras?.getString("Horoscopo_Result")
 
@@ -71,6 +72,7 @@ class horoscopeSelectedActivity : AppCompatActivity() {
         {
             initComp()
             initUI(result)
+            translateText()
         }
 
 
@@ -87,19 +89,26 @@ class horoscopeSelectedActivity : AppCompatActivity() {
         descriptselZodiac=findViewById<TextView>(R.id.descriptionZodiac)
         imgselZodiac=findViewById<ImageView>(R.id.ImgSelZodiac)
         buttonBackHoroscope=findViewById<Button>(R.id.BackToHoroscopo)
+        navigationBar=findViewById(R.id.navigationBar)
         buttonBackHoroscope.setOnClickListener { finish() }
 
 
 
     }
-    private fun initUI(id:String)
+
+    private fun translateText()
     {
-        selectedZodiac= SimboloZodiacoProvider.findById(id)
-
-
         val service= RetrofitServiceFactory.makeRetrofitService()
         lifecycleScope.launch {
-            val value = service.getDailyZodiac(selectedZodiac.id,"TODAY")
+
+            when(typedayInfo)
+            {
+                typeDayZodiac.daily->resultCallApi=service.getDailyZodiac(selectedZodiac.id,"TODAY")
+                typeDayZodiac.weekly->resultCallApi=service.getWeeklyZodiac(selectedZodiac.id)
+                typeDayZodiac.month->resultCallApi=service.getMonthlyZodiac(selectedZodiac.id)
+            }
+
+            val value = resultCallApi
 
             selectIdioma()
 
@@ -113,19 +122,40 @@ class horoscopeSelectedActivity : AppCompatActivity() {
                         .addOnSuccessListener { translatedText ->
                             // Translation successful.
                             PutTheDescriptionText(translatedText)
+                            conexionWork=true;
+                            abilityShareButton()
                         }
                         .addOnFailureListener { exception ->
                             // Error.
                             // ...
+
+                            PutTheDescriptionText(exception.stackTraceToString())
                         }
                 }
                 .addOnFailureListener { exception ->
                     // Model couldn’t be downloaded or other internal error.
                     // ...
+
+                    PutTheDescriptionText(exception.stackTraceToString())
                 }
             //descriptselZodiac.setText(value.data.horoscope_data)
 
         }
+
+
+    }
+
+    fun abilityShareButton() {
+
+        if (menuItem != null)
+        {
+            //app:iconTint="@color/black"
+            menuItem.setIcon(R.drawable.share_true)
+        }
+    }
+    private fun initUI(id:String)
+    {
+        selectedZodiac= SimboloZodiacoProvider.findById(id)
 
         //Hacer en la parte del menu el cambio del nombre y añadir un subtitulo de fechas
         supportActionBar?.title = getString(selectedZodiac.Nombre)
@@ -135,6 +165,29 @@ class horoscopeSelectedActivity : AppCompatActivity() {
         txtselIconZodiac.setText(selectedZodiac.Nombre)
         imgselZodiac.setImageResource(selectedZodiac.Icono)
 
+
+        navigationBar.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.menu_daily -> {
+                    typedayInfo=typeDayZodiac.daily
+                    translateText()
+                }
+                R.id.menu_weekly -> {
+                    typedayInfo=typeDayZodiac.weekly
+                    translateText()
+                }
+                R.id.menu_monthly -> {
+                    typedayInfo=typeDayZodiac.month
+                    translateText()
+                }
+            }
+
+            return@setOnItemSelectedListener true
+        }
+
+        navigationBar.selectedItemId = R.id.menu_daily
+
+         
 
     }
     private fun selectIdioma()
@@ -201,6 +254,8 @@ class horoscopeSelectedActivity : AppCompatActivity() {
 
         if(menu!=null)
         {
+            menuItem=menu.findItem(R.id.share)
+
             val favIcon = menu.findItem(R.id.fav)
             if(prefs.getName()==selectedZodiac.id)
             {
@@ -260,7 +315,10 @@ class horoscopeSelectedActivity : AppCompatActivity() {
                 }
             R.id.share->
                 {
-                    shareDats(selectedZodiac.id)
+                    if(conexionWork==true)
+                    {
+                        shareDats(selectedZodiac.id)
+                    }
                     return true
                 }
             else->

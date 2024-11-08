@@ -8,4 +8,5 @@
     <color name="BackgroundComp">#56005EFF</color>
     <color name="BackgroundCompFaved">#576817FF</color>
     <color name="ZodiacColor">#E800B7FF</color>
+    <color name="Background0_Opacity">#00FFFFFF</color>
 </resources>
